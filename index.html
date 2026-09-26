@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rygel's Site</title>
+<meta name="description" content="Rygel Gaspar — essays and code projects.">
+<style>
+  :root{
+    --bg: #f7f4ec;
+    --line: #e3ddcd;
+    --text: #24201a;
+    --text-dim: #7a7364;
+    --accent: #bd5d3a;
+    --serif: Iowan, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  body{
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::selection{ background: var(--accent); color: var(--bg); }
+
+  a{ color: var(--text); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; transition: color .15s ease, text-decoration-color .15s ease; }
+  a:hover, a:focus-visible{ color: var(--accent); text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible{ outline: 1px solid var(--accent); outline-offset: 3px; }
+
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 40px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .site-name{ font-family: var(--serif); font-size: 20px; letter-spacing: 0.01em; }
+
+  nav{ display: flex; gap: 24px; }
+
+  nav button{
+    background: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: var(--text-dim);
+    font-family: var(--sans);
+    font-size: 15px;
+    padding: 4px 1px 6px;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+  }
+
+  nav button:hover{ color: var(--text); }
+  nav button[aria-selected="true"]{ color: var(--accent); border-color: var(--accent); }
+
+  main{
+    flex: 1;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  section[hidden]{ display: none; }
+
+  h1{
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text);
+    margin: 0 0 24px;
+  }
+
+  .about p{ max-width: 58ch; margin: 0 0 28px; font-size: 17px; }
+
+  .blank{ color: var(--accent); }
+
+  .contact{ color: var(--text-dim); }
+
+  .list{
+    list-style: none;
+    margin: 0 -16px;
+    padding: 0;
+  }
+
+  .list li{
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--line);
+    border-radius: 4px;
+    transition: background .15s ease;
+  }
+
+  .list li:first-child{ border-top: 1px solid var(--line); }
+
+  .list li:hover{ background: rgba(189, 93, 58, 0.06); }
+
+  .item-title{ margin: 0 0 4px; font-family: var(--serif); font-size: 18px; transition: color .15s ease; }
+
+  .list li:hover .item-title{ color: var(--accent); }
+
+  .list a{ font-size: 14px; }
+
+  .series-title{ font-family: var(--serif); font-size: 18px; margin: 0 0 4px; }
+  .series-sub{ color: var(--text-dim); font-size: 14px; margin: 0 0 20px; }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 24px 40px;
+    color: var(--text-dim);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px){
+    header{ padding: 16px 20px; }
+    main{ padding: 36px 20px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="site-name">Rygel's Site</span>
+  <nav>
+    <button type="button" data-target="about" aria-selected="true">[About]</button>
+    <button type="button" data-target="projects" aria-selected="false">[Projects]</button>
+    <button type="button" data-target="essays" aria-selected="false">[Essays]</button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="about" class="about">
+    <h1>about</h1>
+    <p>
+      I am Rygel Gaspar, I'm <span class="blank">___</span> years old and I make essays
+      and code projects in various languages.
+    </p>
+    <p class="contact">Email: <a href="mailto:rygelgaspar@gmail.com">rygelgaspar@gmail.com</a></p>
+  </section>
+
+  <section id="projects" hidden>
+    <h1>projects</h1>
+    <ul class="list">
+      <li>
+        <p class="item-title">Laude AI</p>
+        <a href="https://github.com/RygelGasparTheOG/laude-ai" target="_blank" rel="noopener">github.com/RygelGasparTheOG/laude-ai</a>
+      </li>
+      <li>
+        <p class="item-title">Laude AI OS</p>
+        <a href="https://github.com/RygelGasparTheOG/laude-ai-os" target="_blank" rel="noopener">github.com/RygelGasparTheOG/laude-ai-os</a>
+      </li>
+      <li>
+        <p class="item-title">RyCord</p>
+        <a href="https://github.com/RygelGasparTheOG/RyCord" target="_blank" rel="noopener">github.com/RygelGasparTheOG/RyCord</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="essays" hidden>
+    <h1>essays</h1>
+    <p class="series-title">My Quest for Digital Independence</p>
+    <p class="series-sub">a series</p>
+    <ul class="list">
+      <li><a href="/essays/my_quest_for_digital_independence/my_quest_for_digital_independence_essay_01.txt">essay_01.txt</a></li>
+      <li><a href="/essays/my_quest_for_digital_independence/my_quest_for_digital_independence_essay_02.txt">essay_02.txt</a></li>
+      <li><a href="/essays/my_quest_for_digital_independence/my_quest_for_digital_independence_essay_03.txt">essay_03.txt</a></li>
+      <li><a href="/essays/my_quest_for_digital_independence/my_quest_for_digital_independence_essay_04.txt">essay_04.txt</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>&copy; 2026 RygelGaspar</footer>
+
+<script>
+  var buttons = document.querySelectorAll('nav button');
+  var sections = document.querySelectorAll('main section');
+
+  function showTab(name) {
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].hidden = sections[i].id !== name;
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      var isMatch = buttons[j].getAttribute('data-target') === name;
+      buttons[j].setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    }
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      showTab(this.getAttribute('data-target'));
+    });
+  }
+</script>
+
+</body>
+</html>
